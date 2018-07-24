@@ -1,0 +1,99 @@
+﻿<Page
+    x:Class="AppX.ContentPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppX"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:ConnectionId='1' Background="#b8e0b8"
+          Name="mainGrid"
+                                            >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="7.8*"></RowDefinition>
+            <RowDefinition Height="1.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <local:FragmentLoad x:ConnectionId='2' x:Name="fragmentLoad" Grid.RowSpan="3" Canvas.ZIndex="5" Visibility="Collapsed"></local:FragmentLoad>
+        <Grid Grid.Row="0" Background="Transparent">
+            <local:FragmentTop x:ConnectionId='15' x:Name="fragmentTop"></local:FragmentTop>
+        </Grid>
+
+        <Grid Grid.RowSpan="2" Background="#b8e0b8"
+              Grid.Row="1">
+            <SplitView x:ConnectionId='10' IsPaneOpen="False"
+                       PaneBackground="#2da830"
+                       Name="svLeft"
+                       OpenPaneLength="400"
+                       DisplayMode="Overlay">
+                <SplitView.Pane>
+                    <local:FragmentLeft Name="fragmentLeft"></local:FragmentLeft>
+                </SplitView.Pane>
+                <SplitView.Content>
+                    <ScrollViewer x:ConnectionId='11' Name="scrollviewer">
+                        <StackPanel Orientation="Vertical" CornerRadius="8" Margin="8" Padding="8" Background="#fff">
+                            <TextBlock x:ConnectionId='12' Name="tblTitle"
+                                       Foreground="#135c15"
+                                       FontSize="20"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"></TextBlock>
+                            <TextBlock x:ConnectionId='13' Name="tblChapter"
+                                       Foreground="#135c15"
+                                       FontSize="20"
+                                       HorizontalAlignment="Center"
+                                       FontWeight="Bold"></TextBlock>
+                            <TextBlock x:ConnectionId='14' Name="tblContent"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       TextWrapping="Wrap"
+                                       TextAlignment="Justify"
+                                       Padding="8"></TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                </SplitView.Content>
+            </SplitView>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Stretch"
+                        Margin="0,0,16,8">
+                <StackPanel x:ConnectionId='3' Orientation="Horizontal"
+                            Name="spControl">
+
+                    <Image x:ConnectionId='5' Source="Assets/Bulb - 02.png"
+                       Margin="8,16,8,16"
+                       Name="light"
+                                            ></Image>
+                    <Image x:ConnectionId='6' Source="Assets/Zoom out .png"
+                       Margin="8,16,8,16"
+                       Name="zoomOut"
+                                              ></Image>
+                    <Image x:ConnectionId='7' Source="Assets/Arrowhead-Left-01.png"
+                       Margin="8,16,8,16"
+                       Name="previous"
+                                               ></Image>
+                    <Image x:ConnectionId='8' Source="Assets/Arrowhead-Right-01.png"
+                       Margin="8,16,8,16"
+                       Name="next"
+                                           ></Image>
+                    <Image x:ConnectionId='9' Source="Assets/Zoom-In 01.png"
+                       Margin="8,16,8,16"
+                       Name="zoomin"
+                                             ></Image>
+                </StackPanel>
+                <Image x:ConnectionId='4' Source="Assets/Settings - 11.png"
+                       Margin="8,16,8,16"
+                       Name="setting"
+                                              
+                       Visibility="Collapsed"></Image>
+            </StackPanel>
+        </Grid>
+        <local:FragmentCheckConnection Canvas.ZIndex="-1"></local:FragmentCheckConnection>
+    </Grid>
+</Page>
+
